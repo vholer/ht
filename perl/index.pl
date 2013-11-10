@@ -9,11 +9,11 @@ get '/' => sub {
 	$self->render('index');
 };
 
-get '/:foo' => sub {
-	my $self = shift;
-	my $foo  = $self->param('foo');
-	$self->render(text => "Hello from $foo!");
-};
+#get '/:foo' => sub {
+#	my $self = shift;
+#	my $foo  = $self->param('foo');
+#	$self->render(text => "Hello from $foo!");
+#};
 
 get '/sensor' => sub {
 	my $self = shift;
