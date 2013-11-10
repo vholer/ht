@@ -5,14 +5,19 @@ use Mojolicious::Lite;
 plugin 'PODRenderer';
 
 get '/' => sub {
-  my $self = shift;
-  $self->render('index');
+	my $self = shift;
+	$self->render('index');
 };
 
 get '/:foo' => sub {
-        my $self = shift;
-        my $foo  = $self->param('foo');
-        $self->render(text => "Hello from $foo!");
+	my $self = shift;
+	my $foo  = $self->param('foo');
+	$self->render(text => "Hello from $foo!");
+};
+
+get '/sensor' => sub {
+	my $self = shift;
+	return $self->render(json => [1,2,3,4,5]);
 };
 
 app->start;
