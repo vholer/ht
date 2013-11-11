@@ -1,5 +1,18 @@
 #!/usr/bin/env perl
 use Mojolicious::Lite;
+use Mojolicious::Plugin::Database;
+
+sub startup {
+	my $self = shift;
+
+	$self->plugin('database', {
+		dsn			=> "dbi:Pg:dbname=$ENV{'OPENSHIFT_APP_NAME'}",
+		username	=> $ENV{'OPENSHIFT_POSTGRESQL_DB_USERNAME'},
+		password	=> $ENV{'OPENSHIFT_POSTGRESQL_DB_PASSWORD'},
+		options		=> { 'pg_enable_utf8' => 1 },
+		helper		=> 'db',
+	});
+}
 
 # Documentation browser under "/perldoc"
 plugin 'PODRenderer';
