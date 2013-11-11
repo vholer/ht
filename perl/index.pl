@@ -40,7 +40,6 @@ get '/' => sub {
 
 get '/sensor' => sub {
 	my $self = shift;
-
 	return $self->render(json => $self->db->selectcol_arrayref('
 		SELECT id
 		FROM sensor
@@ -49,7 +48,6 @@ get '/sensor' => sub {
 
 get '/sensor/:id' => sub {
 	my $self = shift;
-
 	return $self->render(json => $self->db->selectrow_hashref('
 		SELECT extract(epoch from date) as date, temperature, humidity
 		FROM data
@@ -57,11 +55,12 @@ get '/sensor/:id' => sub {
 		ORDER BY date DESC
 		LIMIT 1
 	', {}, $self->param('id')));
+};
 
-#	return $self->render(json => {
-#		temperature	=> 0,
-#		humidity	=> 0,
-#	});
+post '/sensor/:id' => sub {
+	my $self = shift;
+
+	return $self->render(text => join(' ## ',$self->param ));
 };
 
 
