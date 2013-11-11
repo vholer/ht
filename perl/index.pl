@@ -40,6 +40,7 @@ get '/' => sub {
 
 get '/sensor' => sub {
 	my $self = shift;
+
 	return $self->render(json => $self->db->selectcol_arrayref('
 		SELECT id
 		FROM sensor
@@ -48,6 +49,7 @@ get '/sensor' => sub {
 
 get '/sensor/:id' => sub {
 	my $self = shift;
+
 	return $self->render(json => $self->db->selectrow_hashref('
 		SELECT extract(epoch from date) as date, temperature, humidity
 		FROM data
@@ -60,7 +62,15 @@ get '/sensor/:id' => sub {
 post '/sensor/:id' => sub {
 	my $self = shift;
 
-	return $self->render(text => join(' ## ',$self->param ));
+	$self->db->do('
+		INSERT INTO data(sensor_id, temperature, humidity)
+		VALUES (?, ?, ?)
+	', {},
+		$param('id'),
+		$param('temperature'),
+		$param('humidity')) or return undef;
+
+	return 1;
 };
 
 
