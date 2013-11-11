@@ -50,7 +50,7 @@ get '/sensor' => sub {
 get '/sensor/:id' => sub {
 	my $self = shift;
 
-	return $self->$render(json => $self->db->selectrow_hashref('
+	return $self->render(json => $self->db->selectrow_hashref('
 		SELECT temperature, humidity
 		FROM data
 		WHERE sensor_id = ?
