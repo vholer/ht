@@ -17,7 +17,15 @@ sub startup {
 
 # Documentation browser under "/perldoc"
 plugin 'PODRenderer';
-plugin 'Database';
+
+# Create database plugin
+plugin 'Database' => {
+	dsn			=> "dbi:Pg:dbname=$ENV{'OPENSHIFT_APP_NAME'}",
+	username	=> $ENV{'OPENSHIFT_POSTGRESQL_DB_USERNAME'},
+	password	=> $ENV{'OPENSHIFT_POSTGRESQL_DB_PASSWORD'},
+	options		=> { 'pg_enable_utf8' => 1 },
+	helper		=> 'db',
+};
 
 get '/' => sub {
 	my $self = shift;
