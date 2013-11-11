@@ -45,8 +45,15 @@ get '/sensor' => sub {
 		SELECT id
 		FROM sensor
 	'));
-	#return $self->render(json => [1,2,3,4,5]);
 };
+
+get '/sensor/:id' => sub {
+	return $self->render(json => {
+		temperature	=> 0,
+		humidity	=> 0,
+	});
+}
+
 
 app->start;
 __DATA__
