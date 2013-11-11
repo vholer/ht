@@ -5,6 +5,8 @@ use Mojolicious::Plugin::Database;
 sub startup {
 	my $self = shift;
 
+	die('Kokotina!');
+
 	$self->plugin('database', {
 		dsn			=> "dbi:Pg:dbname=$ENV{'OPENSHIFT_APP_NAME'}",
 		username	=> $ENV{'OPENSHIFT_POSTGRESQL_DB_USERNAME'},
@@ -31,8 +33,8 @@ get '/' => sub {
 get '/sensor' => sub {
 	my $self = shift;
 
-	#return $self->render(json => [1,2,3,4,5]);
-	return $self->render(json => db);
+	#return $self->render(json => db);
+	return $self->render(json => [1,2,3,4,5]);
 };
 
 app->start;
