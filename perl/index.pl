@@ -37,7 +37,7 @@ get '/sensor' => sub {
 	return $self->render(json => [1,2,3,4,5]);
 };
 
-app->start;
+app->startup;
 __DATA__
 
 @@ index.html.ep
