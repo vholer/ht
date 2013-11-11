@@ -50,10 +50,18 @@ get '/sensor' => sub {
 get '/sensor/:id' => sub {
 	my $self = shift;
 
-	return $self->render(json => {
-		temperature	=> 0,
-		humidity	=> 0,
-	});
+	return $self->$render(json => $self->db->selectrow_hashref('
+		SELECT temperature, humidity
+		FROM data
+		WHERE sensor_id = ?
+		ORDER BY date DESC
+		LIMIT 1
+	', {}, $self->param('id')));
+
+#	return $self->render(json => {
+#		temperature	=> 0,
+#		humidity	=> 0,
+#	});
 };
 
 
