@@ -17,6 +17,7 @@ sub startup {
 
 # Documentation browser under "/perldoc"
 plugin 'PODRenderer';
+plugin 'Database';
 
 get '/' => sub {
 	my $self = shift;
