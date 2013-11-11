@@ -41,8 +41,8 @@ get '/' => sub {
 get '/sensor' => sub {
 	my $self = shift;
 
-	#return $self->render(json => db);
-	return $self->render(json => [1,2,3,4,5]);
+	return $self->render(json => $self->db);
+	#return $self->render(json => [1,2,3,4,5]);
 };
 
 app->start;
