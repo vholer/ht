@@ -41,7 +41,10 @@ get '/' => sub {
 get '/sensor' => sub {
 	my $self = shift;
 
-	return $self->render(json => $self->db);
+	return $self->render(json => $self->db->selectcol_arrayref('
+		SELECT id
+		FROM sensor
+	'));
 	#return $self->render(json => [1,2,3,4,5]);
 };
 
