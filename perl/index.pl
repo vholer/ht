@@ -4,7 +4,6 @@ use Mojolicious::Plugin::Database;
 
 sub startup {
 	my $self = shift;
-
 	die('Kokotina!');
 
 	$self->plugin('database', {
@@ -37,7 +36,7 @@ get '/sensor' => sub {
 	return $self->render(json => [1,2,3,4,5]);
 };
 
-app->startup;
+app->start;
 __DATA__
 
 @@ index.html.ep
