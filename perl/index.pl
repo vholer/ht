@@ -48,6 +48,8 @@ get '/sensor' => sub {
 };
 
 get '/sensor/:id' => sub {
+	my $self = shift;
+
 	return $self->render(json => {
 		temperature	=> 0,
 		humidity	=> 0,
