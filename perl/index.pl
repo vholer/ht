@@ -54,7 +54,7 @@ get '/sensor/:id' => sub {
 		temperature	=> 0,
 		humidity	=> 0,
 	});
-}
+};
 
 
 app->start;
