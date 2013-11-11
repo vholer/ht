@@ -66,9 +66,9 @@ post '/sensor/:id' => sub {
 		INSERT INTO data(sensor_id, temperature, humidity)
 		VALUES (?, ?, ?)
 	', {},
-		$param('id'),
-		$param('temperature'),
-		$param('humidity')) or return undef;
+		$self->param('id'),
+		$self->param('temperature'),
+		$self->param('humidity')) or return undef;
 
 	return 1;
 };
