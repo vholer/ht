@@ -27,10 +27,10 @@ plugin 'Database' => {
 	helper		=> 'db',
 };
 
-get '/' => sub {
-	my $self = shift;
-	$self->render('index');
-};
+#get '/' => sub {
+#	my $self = shift;
+#	$self->render('index');
+#};
 
 #get '/:foo' => sub {
 #	my $self = shift;
