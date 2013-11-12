@@ -6,5 +6,5 @@ RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-l
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI} !-f
+#RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI} !-f
 RewriteRule (.*) /index.pl/$1 [QSA,L]
