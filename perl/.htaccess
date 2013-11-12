@@ -1,7 +1,3 @@
-SetHandler perl-script
-PerlHandler Plack::Handler::Apache2
-#PerlSetVar psgi_app _REPO_DIR_/perl/index.pl
-PerlSetVar psgi_app /var/lib/openshift/52795a745973ca9b5b0000cd/app-root/runtime/repo/perl/index.pl
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-l
@@ -9,3 +5,10 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI} !-f
 #RewriteRule (.*) /index.pl/$1 [L]
 RewriteRule (.*) /index.pl/$1 [QSA,L]
+
+<Location /index.pl>
+	SetHandler perl-script
+	PerlHandler Plack::Handler::Apache2
+	#PerlSetVar psgi_app _REPO_DIR_/perl/index.pl
+	PerlSetVar psgi_app /var/lib/openshift/52795a745973ca9b5b0000cd/app-root/runtime/repo/perl/index.pl
+</Location>
