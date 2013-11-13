@@ -2,10 +2,10 @@
 
 /* App Module */
 
-angular.module('phonecat', []).
+angular.module('ht', []).
   config(['$routeProvider', function($routeProvider) {
   $routeProvider.
-      when('/phones', {templateUrl: 'partials/phone-list.html',   controller: PhoneListCtrl}).
-      when('/phones/:phoneId', {templateUrl: 'partials/phone-detail.html', controller: PhoneDetailCtrl}).
-      otherwise({redirectTo: '/phones'});
+      when('/sensor', {templateUrl: 'partials/sensor-list.html',   controller: SensorListCtrl}).
+      when('/sensor/:id', {templateUrl: 'partials/sensor-detail.html', controller: SensorDetailCtrl}).
+      otherwise({redirectTo: '/sensor'});
 }]);

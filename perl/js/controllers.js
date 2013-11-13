@@ -2,19 +2,17 @@
 
 /* Controllers */
 
-function PhoneListCtrl($scope, $http) {
-  $http.get('phones/phones.json').success(function(data) {
-    $scope.phones = data;
+function SensorListCtrl($scope, $http) {
+  $http.get('sensor/.json').success(function(data) {
+    $scope.sensors = data;
   });
-
-  $scope.orderProp = 'age';
 }
 
 //PhoneListCtrl.$inject = ['$scope', '$http'];
 
 
-function PhoneDetailCtrl($scope, $routeParams) {
-  $scope.phoneId = $routeParams.phoneId;
+function SensorDetailCtrl($scope, $routeParams) {
+  $scope.id = $routeParams.id;
 }
 
 //PhoneDetailCtrl.$inject = ['$scope', '$routeParams'];

@@ -4,7 +4,8 @@ DROP TABLE IF EXISTS sensor CASCADE;
 
 CREATE TABLE sensor (
 	id		SERIAL8 PRIMARY KEY NOT NULL,
-	name	TEXT
+	name	TEXT,
+	key		VARCHAR(32) NOT NULL DEFAULT md5(random()::text)
 );
 
 CREATE TABLE data (
