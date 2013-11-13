@@ -14,9 +14,8 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
   $http.get('sensor/' + $routeParams.id + '.json').success(function(data) {
     $scope.sensor = data;
 
-	var date = new Date(dta.date * 1000)
-    //$scope.dateFmt = date.getHours() + ':' date.getMinutes() + ':' + date.getSeconds();
-    $scope.dateFmt = date.toISOString();
+    var date = new Date(data.date * 1000)
+    $scope.dateFmt = date.toString();
   });
 }
 //SensorDetailCtrl.$inject = ['$scope', '$routeParams'];
