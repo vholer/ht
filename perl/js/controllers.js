@@ -3,7 +3,8 @@
 /* Controllers */
 
 function SensorListCtrl($scope, $http) {
-  $http.get('sensor/.json').success(function(data) {
+  $http.get('/sensor/.json').success(function(data) {
+	alert(data);
     $scope.sensors = data;
   });
 }
