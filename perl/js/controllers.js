@@ -9,11 +9,11 @@ function SensorListCtrl($scope, $http) {
   });
 }
 
-//PhoneListCtrl.$inject = ['$scope', '$http'];
+//SensorListCtrl.$inject = ['$scope', '$http'];
 
 
 function SensorDetailCtrl($scope, $routeParams) {
   $scope.id = $routeParams.id;
 }
 
-//PhoneDetailCtrl.$inject = ['$scope', '$routeParams'];
+//SensorDetailCtrl.$inject = ['$scope', '$routeParams'];
