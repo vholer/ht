@@ -11,7 +11,7 @@ function SensorListCtrl($scope, $http) {
 
 
 function SensorDetailCtrl($scope, $routeParams) {
-  $http.get('sensor/' + $routeParams.id + '.json').success(function(data) {
+  $http.get('/sensor/' + $routeParams.id + '.json').success(function(data) {
 	$scope.sensor = data;
     $scope.id = $routeParams.id;
   });
