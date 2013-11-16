@@ -59,6 +59,19 @@ get '/sensor/:id' => sub {
 	', {}, $self->param('id')));
 };
 
+
+get '/sensor/:id/history' => sub {
+	my $self = shift;
+
+	return $self->render(json => $self->db->selectall_arrayref('
+		SELECT extract(epoch from date) as timestamp, temperature, humidity
+		FROM data
+		WHERE sensor_id = ?
+		ORDER BY date DESC
+		LIMIT 100
+	', {}, $self->param('id')));
+};
+
 post '/sensor/:id' => sub {
 	my $self = shift;
 
