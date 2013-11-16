@@ -69,7 +69,7 @@ get '/sensor/:id/history' => sub {
 		WHERE sensor_id = ?
 		ORDER BY date DESC
 		LIMIT 100
-	', {}, $self->param('id')));
+	', { Slice => {} }, $self->param('id')));
 };
 
 post '/sensor/:id' => sub {
