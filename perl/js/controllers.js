@@ -17,5 +17,9 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
     var timestamp = new Date(timestamp.date * 1000)
     $scope.timestampFmt = timestamp.toString();
   });
+
+  $http.get('sensor/' + $routeParams.id + '/history.json').success(function(data) {
+    $scope.graphData = data;
+  });
 }
 //SensorDetailCtrl.$inject = ['$scope', '$routeParams'];
