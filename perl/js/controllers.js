@@ -24,11 +24,21 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
     var cData = [], cLabels = [];
     for (var i = 0; i < data.length; i++) {
       cLabels.push( data[i].timestamp );
-      cData.push( data[i].humidity );
+      cData.push( data[i].temperature );
     };
 
-    alert(cLabels);
-    alert(cData);
+    $scope.chart = {
+      labels: cLabels;
+      datasets: [
+        {
+            fillColor : "rgba(151,187,205,0)",
+            strokeColor : "#e67e22",
+            pointColor : "rgba(151,187,205,0)",
+            pointStrokeColor : "#e67e22",
+            data : cData;
+        },
+      ],
+    };
   });
 }
 //SensorDetailCtrl.$inject = ['$scope', '$routeParams'];
