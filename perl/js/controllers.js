@@ -31,6 +31,7 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
             scaleSteps : 1,
 			scaleStepWidth : 1,
 			scaleStartValue : 1,
+			scaleOverride : true,
       labels: cLabels,
       datasets: [
         {
