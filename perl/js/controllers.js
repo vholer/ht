@@ -27,8 +27,8 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
       cData.push( data[i].humidity );
     };
 
-    warning(cLabels);
-    warning(cData);
+    alert(cLabels);
+    alert(cData);
   });
 }
 //SensorDetailCtrl.$inject = ['$scope', '$routeParams'];
