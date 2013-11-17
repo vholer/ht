@@ -36,15 +36,18 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
 	$scope.options.scaleSteps = Math.ceil(Math.max.apply(null, cData)) -
 		$scope.options.scaleStartValue + 1;
 
+
+
+
     $scope.chart = {
-      labels: cLabels,
+      labels: cLabels.reverse(),
       datasets: [
         {
             fillColor : "rgba(151,187,205,0)",
             strokeColor : "#e67e22",
             pointColor : "rgba(151,187,205,0)",
             pointStrokeColor : "#e67e22",
-            data : cData,
+            data : cData.reverse(),
         },
       ],
     };
