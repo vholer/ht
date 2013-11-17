@@ -5,9 +5,7 @@
 </div>
 
 <h1>{{sensor.humidity}}&nbsp;% <small>humidity</small></h1>
-<div class="center-block">
-	<canvas linechart options="chartHumOptions" data="chartHumData" width="700" height="250"></canvas>
-</div>
+<canvas linechart options="chartHumOptions" data="chartHumData" width="700" height="250" class="center-block"></canvas>
 
 <div class="well well-sm">
 	Last update: {{timestampFmt}}
