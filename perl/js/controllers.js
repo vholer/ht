@@ -28,6 +28,7 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
     };
 
 	$scope.options = {
+		scaleOverlay : true,
 		scaleStepWidth : 1,
 		scaleOverride : true,
 	};
