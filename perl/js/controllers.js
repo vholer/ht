@@ -19,39 +19,47 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
   });
 
   $http.get('sensor/' + $routeParams.id + '/history/day.json').success(function(data) {
-    //$scope.graphData = data;
-
-    var cData = [], cLabels = [];
+    var temp = [], hum = [], labels = [];
     for (var i = 0; i < data.length; i++) {
-      cLabels.push( new Date(data[i].timestamp*1000).getHours() );
-      cData.push( data[i].temperature );
+      labels.push( new Date(data[i].timestamp*1000).getHours() );
+      temp.push( data[i].temperature );
+      hum.push( data[i].humidity);
     };
 
-	$scope.options = {
-		scaleOverride : true,
-		scaleStepWidth : 1,
-		scaleStartValue : Math.floor(Math.min.apply(null, cData))-1,
-	};
+    labels.reverse();
 
-	$scope.options.scaleSteps = Math.ceil(Math.max.apply(null, cData)) -
-		$scope.options.scaleStartValue + 1;
-
-
-
-
-    $scope.chart = {
-      labels: cLabels.reverse(),
-      datasets: [
-        {
-            fillColor : "rgba(151,187,205,0)",
-            strokeColor : "#e67e22",
-            pointColor : "rgba(151,187,205,0)",
-            pointStrokeColor : "#e67e22",
-            data : cData.reverse(),
-        },
-      ],
+    // temperature
+    $scope.chartTempOptions =  {
+      scaleOverride : true,
+      scaleStepWidth : 1,
+      scaleStartValue : Math.floor(Math.min.apply(null, temp))-1,
     };
 
+    $scope.chartTempOptions.scaleSteps = Math.ceil(Math.max.apply(null, temp)) -
+      $scope.chartTempOptions.scaleStartValue + 1;
+
+    $scope.chartTempData = {
+      labels: labels,
+      datasets: [ {
+        fillColor : "rgba(151,187,205,0)",
+        strokeColor : "#e67e22",
+        pointColor : "rgba(151,187,205,0)",
+        pointStrokeColor : "#e67e22",
+        data : temp.reverse(),
+      }],
+    };
+
+    // humidity
+    $scope.chartHumData = {
+      labels: labels,
+      datasets: [ {
+        fillColor : "rgba(151,187,205,0)",
+        strokeColor : "#e67e22",
+        pointColor : "rgba(151,187,205,0)",
+        pointStrokeColor : "#e67e22",
+        data : hum.reverse(),
+      }],
+    };
   });
 }
 //SensorDetailCtrl.$inject = ['$scope', '$routeParams'];
