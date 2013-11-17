@@ -17,7 +17,7 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
   });
 
   $http.get('sensor/' + $routeParams.id + '/history/day.json').success(function(data) {
-	$scope.id = $routeParams.id;
+    $scope.id = $routeParams.id;
 
     var temp = [], hum = [], labels = [];
     for (var i = 0; i < data.length; i++) {
