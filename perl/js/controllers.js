@@ -35,10 +35,11 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
             strokeColor : "#e67e22",
             pointColor : "rgba(151,187,205,0)",
             pointStrokeColor : "#e67e22",
-            data : cData;
+            data : cData,
         },
       ],
     };
+
   });
 }
 //SensorDetailCtrl.$inject = ['$scope', '$routeParams'];
