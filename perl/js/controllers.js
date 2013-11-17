@@ -14,7 +14,7 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
   $http.get('sensor/' + $routeParams.id + '.json').success(function(data) {
     $scope.sensor = data;
 
-    var timestamp = new Date(timestamp.date * 1000)
+    var timestamp = new Date(data.timestamp * 1000)
     $scope.timestampFmt = timestamp.toString();
   });
 
