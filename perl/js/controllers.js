@@ -37,6 +37,8 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
             pointStrokeColor : "#e67e22",
             data : cData,
             scaleSteps : 1,
+			scaleStepWidth : 1,
+			scaleStartValue : 1,
         },
       ],
     };
