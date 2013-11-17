@@ -62,10 +62,10 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
     $scope.chartHumData = {
       labels: labels,
       datasets: [ {
-        fillColor : "rgba(151,187,205,0)",
-        strokeColor : "#e67e22",
-        pointColor : "rgba(151,187,205,0)",
-        pointStrokeColor : "#e67e22",
+        fillColor : "rgba(151,187,205,0.5)",
+        strokeColor : "rgba(151,187,205,1)",
+        pointColor : "rgba(151,187,205,1)",
+        pointStrokeColor : "#fff",
         data : hum.reverse(),
       }],
     };
