@@ -72,6 +72,18 @@ get '/sensor/:id/history' => sub {
 	', { Slice => {} }, $self->param('id')));
 };
 
+get '/sensor/:id/history/day' => sub {
+	my $self = shift;
+
+	return $self->render(json => $self->db->selectall_arrayref(q!
+		SELECT date_trunc('hour',date) AS timestamp, AVG(temperature), AVG(humidity)
+		FROM data
+		WHERE sensor_id=? AND date>NOW()-interval '1 day'
+		GROUP BY timestamp
+		ORDER BY timestamp DESC
+	!, { Slice => {} }, $self->param('id')));
+};
+
 post '/sensor/:id' => sub {
 	my $self = shift;
 
