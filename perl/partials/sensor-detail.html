@@ -1,30 +1,11 @@
-<h1>{{sensor.temperature}}&nbsp;&deg;C <small>temperature</small></h1>
+<h1>{{sensor.id}}</h1>
+
+<h2>{{sensor.temperature}}&nbsp;&deg;C <small>temperature</small></h2>
 <canvas linechart options="chartTempOptions" data="chartTempData" width="700" height="250" style="margin: 15px;"></canvas>
 
-<h1>{{sensor.humidity}}&nbsp;% <small>humidity</small></h1>
+<h2>{{sensor.humidity}}&nbsp;% <small>humidity</small></h2>
 <canvas linechart options="chartHumOptions" data="chartHumData" width="700" height="250" style="margin: 15px;"></canvas>
 
 <div class="well well-sm">
 	Last update: {{timestampFmt}}
 <div>
-
-<!-- empty graphs -->
-<!--
-<script>
-var data = {
-	labels : $.map($(Array(24)),function(val, i) { return i; }),
-	datasets : [
-		{
-			fillColor : "rgba(220,220,220,0.5)",
-			strokeColor : "rgba(220,220,220,1)",
-			pointColor : "rgba(220,220,220,1)",
-			pointStrokeColor : "#fff",
-			data : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-		},
-	]
-};
-
-new Chart( $("#temperatureGraph").get(0).getContext("2d") ).Line(data);
-new Chart( $("#humidityGraph").get(0).getContext("2d") ).Line(data);
-</script>
--->
