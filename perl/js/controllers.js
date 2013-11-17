@@ -34,7 +34,7 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
 	};
 
 	$scope.options.scaleSteps = Math.ceil(Math.max.apply(null, cData)) -
-		$scope.options.scaleStartValue + 2;
+		$scope.options.scaleStartValue + 1;
 
     $scope.chart = {
       labels: cLabels,
