@@ -23,11 +23,9 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
 
     var cData = [], cLabels = [];
     for (var i = 0; i < data.length; i++) {
-      cLabels.push( data[i].timestamp );
+      cLabels.push( new Date(data[i].timestamp*1000).getHours() );
       cData.push( data[i].temperature );
     };
-
-	alert(cLabels);
 
     $scope.chart = {
       labels: cLabels,
