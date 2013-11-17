@@ -50,6 +50,15 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
     };
 
     // humidity
+    $scope.chartHumOptions =  {
+      scaleOverride : true,
+      scaleStepWidth : 1,
+      scaleStartValue : Math.floor(Math.min.apply(null, hum))-1,
+    };
+
+    $scope.chartHumOptions.scaleSteps = Math.ceil(Math.max.apply(null, hum)) -
+      $scope.chartHumOptions.scaleStartValue + 1;
+    
     $scope.chartHumData = {
       labels: labels,
       datasets: [ {
