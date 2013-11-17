@@ -1,8 +1,13 @@
 <h1>{{sensor.temperature}}&nbsp;&deg;C <small>temperature</small></h1>
-<canvas linechart options="chartTempOptions" data="chartTempData" width="700" height="250"></canvas>
+
+<div class="center-block">
+	<canvas linechart options="chartTempOptions" data="chartTempData" width="700" height="250"></canvas>
+</div>
 
 <h1>{{sensor.humidity}}&nbsp;% <small>humidity</small></h1>
-<canvas linechart options="chartHumOptions" data="chartHumData" width="700" height="250"></canvas>
+<div class="center-block">
+	<canvas linechart options="chartHumOptions" data="chartHumData" width="700" height="250"></canvas>
+</div>
 
 <div class="well well-sm">
 	Last update: {{timestampFmt}}
