@@ -76,7 +76,7 @@ get '/sensor/:id/history/day' => sub {
 	my $self = shift;
 
 	return $self->render(json => $self->db->selectall_arrayref(q!
-		SELECT date_trunc('hour',date) AS timestamp,
+		SELECT date_trunc('hour',date)::timestamp with time zone AS timestamp,
 			AVG(temperature) AS temperature,
 			AVG(humidity) AS humidity
 		FROM data
