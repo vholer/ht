@@ -29,7 +29,7 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
 
 	$scope.options = {
 		scaleStepWidth : 1,
-		//scaleOverride : true,
+		scaleOverride : true,
 	};
 
     $scope.chart = {
