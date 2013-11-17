@@ -21,7 +21,7 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
   $http.get('sensor/' + $routeParams.id + '/history.json').success(function(data) {
     //$scope.graphData = data;
 
-    var cData = []; cLabels = [];
+    var cData = [], cLabels = [];
     for (var i = 0; i < data.length; i++) {
       cLabels.push( data[i].timestamp );
       cData.push( data[i].humidity );
