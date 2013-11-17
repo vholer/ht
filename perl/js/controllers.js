@@ -27,11 +27,14 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
       cData.push( data[i].temperature );
     };
 
+	$scope.options = {
+		scaleSteps : 1,
+		scaleStepWidth : 1,
+		scaleStartValue : 1,
+		scaleOverride : true,
+	};
+
     $scope.chart = {
-            scaleSteps : 1,
-			scaleStepWidth : 1,
-			scaleStartValue : 1,
-			scaleOverride : true,
       labels: cLabels,
       datasets: [
         {
@@ -40,10 +43,6 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
             pointColor : "rgba(151,187,205,0)",
             pointStrokeColor : "#e67e22",
             data : cData,
-            scaleSteps : 1,
-			scaleStepWidth : 1,
-			scaleStartValue : 1,
-			scaleOverride : true,
         },
       ],
     };
