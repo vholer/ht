@@ -28,12 +28,14 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
     };
 
 	$scope.options = {
-		//scaleOverlay : true,
 		scaleOverride : true,
 		scaleStepWidth : 1,
 		scaleStartValue : Math.floor(Math.min.apply(null, cData))-1,
-		scaleSteps : 5,
 	};
+
+	$scope.options.	$scope.options.scaleSteps =
+		Math.ceil(Math.max.apply(null, cData)) -
+			$scope.options.scaleStartValue;
 
     $scope.chart = {
       labels: cLabels,
