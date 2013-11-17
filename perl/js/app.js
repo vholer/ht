@@ -2,7 +2,7 @@
 
 /* App Module */
 
-angular.module('ht', []).
+angular.module('ht', ['angles']).
   config(['$routeProvider', function($routeProvider) {
   $routeProvider.
       when('/sensor', {templateUrl: 'partials/sensor-list.html',   controller: SensorListCtrl}).
