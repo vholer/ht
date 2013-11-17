@@ -28,7 +28,7 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
     };
 
     $scope.chart = {
-      labels: cLabels;
+      labels: cLabels,
       datasets: [
         {
             fillColor : "rgba(151,187,205,0)",
