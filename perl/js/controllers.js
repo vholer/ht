@@ -28,6 +28,9 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
     };
 
     $scope.chart = {
+            scaleSteps : 1,
+			scaleStepWidth : 1,
+			scaleStartValue : 1,
       labels: cLabels,
       datasets: [
         {
