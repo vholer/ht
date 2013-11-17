@@ -54,6 +54,7 @@ get '/sensor/:id' => sub {
 		SELECT temperature, humidity, name,
 			extract(epoch from date) AS timestamp
 		FROM data
+			JOIN sensor ON (data.sensor_id = sensor.id)
 		WHERE sensor_id = ?
 		ORDER BY date DESC
 		LIMIT 1
