@@ -27,6 +27,8 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
       cData.push( data[i].temperature );
     };
 
+	alert(cLabels);
+
     $scope.chart = {
       labels: cLabels,
       datasets: [
