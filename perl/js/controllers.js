@@ -19,7 +19,16 @@ function SensorDetailCtrl($scope, $routeParams, $http) {
   });
 
   $http.get('sensor/' + $routeParams.id + '/history.json').success(function(data) {
-    $scope.graphData = data;
+    //$scope.graphData = data;
+
+    var cData = []; cLabels = [];
+    for (var i = 0; i < data.length; i++) {
+      cLabels.push( data[i].timestamp );
+      cData.push( data[i].humidity );
+    };
+
+    warning(cLabels);
+    warning(cData);
   });
 }
 //SensorDetailCtrl.$inject = ['$scope', '$routeParams'];
