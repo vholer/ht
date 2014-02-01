@@ -51,7 +51,9 @@ get '/sensor/:id' => sub {
 	my $self = shift;
 
 	return $self->render(json => $self->db->selectrow_hashref('
-		SELECT temperature, humidity, name,
+		SELECT round(temperature,1) AS temperature,
+			round(humidity,1) AS humidity,
+			name,
 			extract(epoch from date) AS timestamp
 		FROM data
 			JOIN sensor ON (data.sensor_id = sensor.id)
@@ -66,7 +68,9 @@ get '/sensor/:id/history' => sub {
 	my $self = shift;
 
 	return $self->render(json => $self->db->selectall_arrayref('
-		SELECT extract(epoch from date) as timestamp, temperature, humidity
+		SELECT extract(epoch from date) as timestamp,
+			round(temperature,1) AS temperature,
+			round(humidity,1) AS humidity
 		FROM data
 		WHERE sensor_id = ?
 		ORDER BY date DESC
@@ -79,8 +83,8 @@ get '/sensor/:id/history/day' => sub {
 
 	return $self->render(json => $self->db->selectall_arrayref(q!
 		SELECT extract(epoch FROM date_trunc('hour',date)) AS timestamp,
-			AVG(temperature) AS temperature,
-			AVG(humidity) AS humidity
+			round(avg(temperature),1) AS temperature,
+			round(avg(humidity),1) AS humidity
 		FROM data
 		WHERE sensor_id=? AND date>NOW()-interval '1 day'
 		GROUP BY timestamp
