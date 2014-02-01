@@ -83,8 +83,8 @@ get '/sensor/:id/history/day' => sub {
 
 	return $self->render(json => $self->db->selectall_arrayref(q!
 		SELECT extract(epoch FROM date_trunc('hour',date)) AS timestamp,
-			round(avg(temperature),1) AS temperature,
-			round(avg(humidity),1) AS humidity
+			avg(temperature) AS temperature,
+			avg(humidity) AS humidity
 		FROM data
 		WHERE sensor_id=? AND date>NOW()-interval '1 day'
 		GROUP BY timestamp
