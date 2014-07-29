@@ -50,6 +50,7 @@ get '/sensor' => sub {
 get '/sensor/:id' => sub {
 	my $self = shift;
 
+	$self->res->headers->header('Access-Control-Allow-Origin' => '*');
 	return $self->render(json => $self->db->selectrow_hashref('
 		SELECT round(temperature::numeric,1) AS temperature,
 			round(humidity::numeric,1) AS humidity,
