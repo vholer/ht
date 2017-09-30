@@ -1,3 +1,0 @@
-Plack::Handler::Apache2
-Mojolicious::Lite
-Mojolicious::Plugin::Database
